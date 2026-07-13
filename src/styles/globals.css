@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --color-bg: #09090B;
+  --color-card: #18181B;
+  --color-popover: #18181B;
+  --color-border: #27272A;
+  --color-sidebar: #09090B;
+
+  /* Semantic */
+  --color-primary: #6366F1;
+  --color-primary-foreground: #FAFAFA;
+  --color-accent: #8B5CF6;
+  --color-accent-foreground: #FAFAFA;
+  --color-success: #22C55E;
+  --color-success-foreground: #FAFAFA;
+  --color-danger: #EF4444;
+  --color-danger-foreground: #FAFAFA;
+  --color-warning: #F59E0B;
+  --color-warning-foreground: #FAFAFA;
+
+  /* Typography */
+  --color-text: #FAFAFA;
+  --color-muted: #A1A1AA;
+  --color-muted-foreground: #A1A1AA;
+  --color-card-foreground: #FAFAFA;
+  --color-popover-foreground: #FAFAFA;
+  --color-sidebar-foreground: #FAFAFA;
+  --color-sidebar-muted: #A1A1AA;
+  --color-sidebar-accent: #6366F1;
+
+  /* Ring / focus */
+  --color-ring: #6366F1;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.5);
+  --shadow-dropdown: 0 4px 12px 0 rgb(0 0 0 / 0.6);
+  --shadow-modal: 0 8px 32px 0 rgb(0 0 0 / 0.7);
+
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Line heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
