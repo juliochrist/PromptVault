@@ -2,6 +2,8 @@
 
 import { Sidebar } from "@/components/layout/sidebar";
 import { TopNavbar } from "@/components/layout/top-navbar";
+import { MobileNav } from "@/components/layout/mobile-nav";
+import { CommandPalette } from "@/components/common/command-palette";
 import { cn } from "@/lib/utils";
 
 interface AppLayoutProps {
@@ -15,14 +17,16 @@ export function AppLayout({ children, className }: AppLayoutProps) {
       <Sidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
         <TopNavbar />
+        <CommandPalette />
         <main
           className={cn(
-            "flex-1 overflow-y-auto p-6",
+            "flex-1 overflow-y-auto p-4 pb-20 lg:p-6 lg:pb-6",
             className,
           )}
         >
           {children}
         </main>
+        <MobileNav />
       </div>
     </div>
   );

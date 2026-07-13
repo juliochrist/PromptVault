@@ -25,7 +25,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex h-full w-64 flex-col border-r border-border bg-sidebar">
+    <aside className="hidden lg:flex h-full w-64 flex-col border-r border-border bg-sidebar">
       <div className="flex h-14 items-center gap-2 border-b border-border px-6">
         <div className="h-3 w-3 rounded-full bg-primary" />
         <span className="text-lg font-bold text-text">PromptVault</span>

@@ -30,7 +30,7 @@ export function TopNavbar() {
       <div className="flex items-center gap-4">
         <button
           onClick={() => {
-            router.push("/search");
+            window.dispatchEvent(new CustomEvent("open-command-palette"));
           }}
           className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-1.5 text-sm text-muted transition-colors hover:text-text"
         >
