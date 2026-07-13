@@ -14,19 +14,19 @@ interface CollectionCardProps {
 export function CollectionCard({ collection, onDelete }: CollectionCardProps) {
   return (
     <Link href={`/collections/${collection.id}`}>
-      <Card className="group transition-all hover:border-primary/50 cursor-pointer">
+      <Card className="group transition-all duration-200 hover:border-border-hover hover:shadow-dropdown cursor-pointer">
         <CardHeader className="flex flex-row items-start justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <div
-              className="flex h-10 w-10 items-center justify-center rounded-lg"
-              style={{ backgroundColor: collection.color ?? "#27272A" }}
+              className="flex h-11 w-11 items-center justify-center rounded-[12px]"
+              style={{ backgroundColor: collection.color ?? "var(--color-surface)" }}
             >
               <Folder className="h-5 w-5 text-text" />
             </div>
             <div>
-              <CardTitle className="text-base">{collection.name}</CardTitle>
+              <CardTitle className="text-[15px]">{collection.name}</CardTitle>
               {collection.description && (
-                <p className="text-sm text-muted line-clamp-1">
+                <p className="text-sm text-text-secondary line-clamp-1 mt-0.5">
                   {collection.description}
                 </p>
               )}
@@ -35,11 +35,11 @@ export function CollectionCard({ collection, onDelete }: CollectionCardProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
+            className="h-8 w-8 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              if (confirm('Delete this collection?')) onDelete(collection.id);
+              if (confirm("Delete this collection?")) onDelete(collection.id);
             }}
           >
             <Trash2 className="h-4 w-4 text-danger" />

@@ -53,9 +53,9 @@ export function PromptForm({ initialData, onSubmit, submitLabel }: PromptFormPro
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="space-y-1.5">
-        <Label htmlFor="title">Title</Label>
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="space-y-2">
+        <Label htmlFor="title" className="text-sm font-medium text-text">Title</Label>
         <Input
           id="title"
           value={title}
@@ -65,8 +65,8 @@ export function PromptForm({ initialData, onSubmit, submitLabel }: PromptFormPro
         />
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="description">Description</Label>
+      <div className="space-y-2">
+        <Label htmlFor="description" className="text-sm font-medium text-text">Description</Label>
         <Input
           id="description"
           value={description}
@@ -75,20 +75,20 @@ export function PromptForm({ initialData, onSubmit, submitLabel }: PromptFormPro
         />
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="content">Prompt Content</Label>
+      <div className="space-y-2">
+        <Label htmlFor="content" className="text-sm font-medium text-text">Prompt Content</Label>
         <Textarea
           id="content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Write your prompt here..."
-          className="min-h-[200px] font-mono text-sm"
+          className="min-h-[220px] font-mono text-sm leading-relaxed"
           required
         />
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="category">Category</Label>
+      <div className="space-y-2">
+        <Label htmlFor="category" className="text-sm font-medium text-text">Category</Label>
         <Select value={category} onValueChange={setCategory}>
           <SelectTrigger id="category">
             <SelectValue placeholder="Select a category" />
@@ -103,8 +103,8 @@ export function PromptForm({ initialData, onSubmit, submitLabel }: PromptFormPro
         </Select>
       </div>
 
-      <div className="flex items-center gap-3">
-        <Button type="submit" disabled={saving}>
+      <div className="flex items-center gap-3 pt-2">
+        <Button type="submit" disabled={saving} size="lg">
           {saving ? "Saving..." : submitLabel}
         </Button>
         <Button

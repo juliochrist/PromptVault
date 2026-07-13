@@ -23,7 +23,7 @@ export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 flex border-t border-border bg-bg lg:hidden">
+    <nav className="fixed bottom-3 left-3 right-3 z-50 flex items-center gap-1 rounded-[16px] border border-border bg-glass backdrop-blur-xl px-2 py-2 shadow-dropdown lg:hidden">
       {routes.map((route) => {
         const Icon = route.icon;
         const isActive = pathname.startsWith(route.href);
@@ -32,13 +32,13 @@ export function MobileNav() {
             key={route.href}
             href={route.href}
             className={cn(
-              "flex flex-1 flex-col items-center gap-0.5 py-2 text-[10px] font-medium transition-colors",
+              "flex flex-1 flex-col items-center gap-0.5 rounded-[10px] py-1.5 text-[10px] font-medium transition-all duration-150",
               isActive
-                ? "text-primary"
-                : "text-muted hover:text-text",
+                ? "bg-sidebar-active text-primary"
+                : "text-text-secondary hover:text-text",
             )}
           >
-            <Icon className="h-5 w-5" />
+            <Icon className="h-4 w-4" />
             {route.label}
           </Link>
         );

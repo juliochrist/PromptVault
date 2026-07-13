@@ -10,6 +10,7 @@ import {
   Settings,
   Search,
   Play,
+  Sparkles,
 } from "lucide-react";
 
 const routes = [
@@ -25,13 +26,15 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden lg:flex h-full w-64 flex-col border-r border-border bg-sidebar">
-      <div className="flex h-14 items-center gap-2 border-b border-border px-6">
-        <div className="h-3 w-3 rounded-full bg-primary" />
-        <span className="text-lg font-bold text-text">PromptVault</span>
+    <aside className="hidden lg:flex m-3 mr-0 h-[calc(100vh-1.5rem)] w-60 flex-col rounded-sidebar glass">
+      <div className="flex h-14 items-center gap-2.5 border-b border-sidebar-border px-5">
+        <div className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-gradient-primary">
+          <Sparkles className="h-4 w-4 text-white" />
+        </div>
+        <span className="text-base font-bold text-text">PromptVault</span>
       </div>
 
-      <nav className="flex-1 space-y-1 p-4">
+      <nav className="flex-1 space-y-0.5 p-3">
         {routes.map((route) => {
           const Icon = route.icon;
           const isActive = pathname.startsWith(route.href);
@@ -40,10 +43,10 @@ export function Sidebar() {
               key={route.href}
               href={route.href}
               className={cn(
-                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                "flex items-center gap-3 rounded-[12px] px-3 py-2.5 text-sm font-medium transition-all duration-150",
                 isActive
-                  ? "bg-primary/10 text-primary"
-                  : "text-sidebar-muted hover:bg-card hover:text-text",
+                  ? "bg-sidebar-active text-primary"
+                  : "text-text-secondary hover:bg-sidebar-hover hover:text-text",
               )}
             >
               <Icon className="h-4 w-4" />
@@ -53,8 +56,8 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="border-t border-border p-4">
-        <p className="text-xs text-sidebar-muted">PromptVault v0.1.0</p>
+      <div className="border-t border-sidebar-border px-5 py-4">
+        <p className="text-xs text-muted">v0.1.0</p>
       </div>
     </aside>
   );

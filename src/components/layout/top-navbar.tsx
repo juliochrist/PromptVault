@@ -11,9 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Command,
-} from "lucide-react";
+import { Command, Sparkles } from "lucide-react";
 
 export function TopNavbar() {
   const router = useRouter();
@@ -26,17 +24,17 @@ export function TopNavbar() {
   };
 
   return (
-    <header className="flex h-14 items-center justify-between border-b border-border bg-bg px-6">
+    <header className="sticky top-0 z-20 flex h-14 items-center justify-between border-b border-border bg-bg/60 backdrop-blur-xl px-4 lg:px-6">
       <div className="flex items-center gap-4">
         <button
           onClick={() => {
             window.dispatchEvent(new CustomEvent("open-command-palette"));
           }}
-          className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-1.5 text-sm text-muted transition-colors hover:text-text"
+          className="flex items-center gap-2 rounded-[14px] border border-border bg-glass px-3.5 py-2 text-sm text-text-secondary transition-all duration-150 hover:border-border-hover hover:text-text hover:shadow-dropdown"
         >
           <Command className="h-3.5 w-3.5" />
-          <span>Search...</span>
-          <kbd className="ml-4 rounded border border-border px-1.5 py-0.5 text-xs text-muted">
+          <span>Search pages...</span>
+          <kbd className="ml-6 rounded-[6px] border border-border bg-surface px-1.5 py-0.5 text-[10px] text-muted">
             ⌘K
           </kbd>
         </button>
@@ -44,9 +42,11 @@ export function TopNavbar() {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" className="rounded-full">
+          <Button variant="ghost" size="icon" className="rounded-full glass-hover">
             <Avatar className="h-8 w-8">
-              <AvatarFallback>U</AvatarFallback>
+              <AvatarFallback className="bg-primary/10 text-primary text-xs">
+                <Sparkles className="h-3.5 w-3.5" />
+              </AvatarFallback>
             </Avatar>
           </Button>
         </DropdownMenuTrigger>

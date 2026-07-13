@@ -22,36 +22,36 @@ interface PromptCardProps {
 
 export function PromptCard({ prompt, onToggleFavorite, onDelete }: PromptCardProps) {
   return (
-    <Card className="group transition-all hover:border-primary/50">
+    <Card className="group transition-all duration-200 hover:border-border-hover hover:shadow-dropdown">
       <CardHeader className="flex flex-row items-start justify-between gap-4">
         <div className="flex-1 space-y-1">
           <Link href={`/prompts/${prompt.id}`}>
-            <CardTitle className="text-base hover:text-primary transition-colors">
+            <CardTitle className="text-[15px] hover:text-primary transition-colors duration-150">
               {prompt.title}
             </CardTitle>
           </Link>
           {prompt.description && (
-            <p className="text-sm text-muted line-clamp-2">{prompt.description}</p>
+            <p className="text-sm text-text-secondary line-clamp-2">{prompt.description}</p>
           )}
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5 shrink-0">
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8"
+            className="h-8 w-8 rounded-[10px]"
             onClick={() => onToggleFavorite(prompt.id, prompt.is_favorite)}
             aria-label={prompt.is_favorite ? "Remove from favorites" : "Add to favorites"}
           >
             <Heart
-              className={`h-4 w-4 ${
-                prompt.is_favorite ? "fill-danger text-danger" : "text-muted"
+              className={`h-4 w-4 transition-all duration-150 ${
+                prompt.is_favorite ? "fill-danger text-danger" : "text-text-secondary"
               }`}
             />
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <MoreHorizontal className="h-4 w-4 text-muted" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
+                <MoreHorizontal className="h-4 w-4 text-text-secondary" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40">
@@ -76,12 +76,12 @@ export function PromptCard({ prompt, onToggleFavorite, onDelete }: PromptCardPro
       <CardContent>
         <div className="flex items-center gap-2">
           {prompt.category && (
-            <Badge variant="secondary" className="text-xs">
+            <Badge variant="secondary" className="text-[11px]">
               {prompt.category}
             </Badge>
           )}
           <span className="text-xs text-muted">
-            Updated {new Date(prompt.updated_at).toLocaleDateString()}
+            {new Date(prompt.updated_at).toLocaleDateString()}
           </span>
         </div>
       </CardContent>

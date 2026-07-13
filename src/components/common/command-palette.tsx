@@ -13,6 +13,7 @@ import {
   Plus,
   Heart,
   Command as CommandIcon,
+  Sparkles,
 } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
@@ -58,20 +59,20 @@ export function CommandPalette() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="top-[15%] translate-y-0 p-0 sm:rounded-2xl">
-        <Command className="rounded-lg border border-border bg-popover" label="Command Menu">
-          <div className="flex items-center border-b border-border px-3">
-            <CommandIcon className="mr-2 h-4 w-4 shrink-0 text-muted" />
+      <DialogContent className="top-[12%] translate-y-0 max-w-md p-0 gap-0 border-border/60">
+        <Command className="rounded-dialog bg-glass backdrop-blur-xl" label="Command Menu">
+          <div className="flex items-center border-b border-border/60 px-4">
+            <CommandIcon className="mr-3 h-4 w-4 shrink-0 text-muted" />
             <Command.Input
               placeholder="Search pages and actions..."
-              className="flex h-12 w-full bg-transparent text-sm text-text outline-none placeholder:text-muted"
+              className="flex h-13 w-full bg-transparent text-sm text-text outline-none placeholder:text-muted"
             />
           </div>
           <Command.List className="max-h-72 overflow-y-auto p-2">
-            <Command.Empty className="py-6 text-center text-sm text-muted">
+            <Command.Empty className="py-8 text-center text-sm text-text-secondary">
               No results found.
             </Command.Empty>
-            <Command.Group heading="Navigation" className="text-xs text-muted [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5">
+            <Command.Group heading="Navigation" className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:text-muted [&_[cmdk-group-heading]]:font-medium">
               {pages.map((page) => {
                 const Icon = page.icon;
                 return (
@@ -79,26 +80,26 @@ export function CommandPalette() {
                     key={page.id}
                     value={page.id}
                     onSelect={handleSelect}
-                    className="flex cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-sm text-text hover:bg-card aria-selected:bg-card"
+                    className="flex cursor-pointer items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm text-text transition-colors hover:bg-sidebar-hover aria-selected:bg-sidebar-hover"
                   >
-                    <Icon className="h-4 w-4 text-muted" />
+                    <Icon className="h-4 w-4 text-text-secondary" />
                     {page.label}
                   </Command.Item>
                 );
               })}
             </Command.Group>
           </Command.List>
-          <div className="flex items-center gap-4 border-t border-border px-3 py-2">
-            <div className="flex items-center gap-1 text-xs text-muted">
-              <kbd className="rounded border border-border px-1 py-0.5 text-[10px]">↑↓</kbd>
+          <div className="flex items-center gap-4 border-t border-border/60 px-4 py-2.5">
+            <div className="flex items-center gap-1.5 text-xs text-muted">
+              <kbd className="rounded-[4px] border border-border/60 bg-surface px-1.5 py-0.5 text-[10px]">↑↓</kbd>
               <span>navigate</span>
             </div>
-            <div className="flex items-center gap-1 text-xs text-muted">
-              <kbd className="rounded border border-border px-1 py-0.5 text-[10px]">↵</kbd>
+            <div className="flex items-center gap-1.5 text-xs text-muted">
+              <kbd className="rounded-[4px] border border-border/60 bg-surface px-1.5 py-0.5 text-[10px]">↵</kbd>
               <span>open</span>
             </div>
-            <div className="flex items-center gap-1 text-xs text-muted">
-              <kbd className="rounded border border-border px-1 py-0.5 text-[10px]">esc</kbd>
+            <div className="flex items-center gap-1.5 text-xs text-muted">
+              <kbd className="rounded-[4px] border border-border/60 bg-surface px-1.5 py-0.5 text-[10px]">esc</kbd>
               <span>close</span>
             </div>
           </div>
